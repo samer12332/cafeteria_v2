@@ -12,6 +12,12 @@
         <p class="mt-2 text-sm text-slate-500">Sign in to access your cafeteria dashboard.</p>
 
         <form class="mt-6 space-y-4" method="post" action="<?= url('/login') ?>" data-validate-form>
+            <?php if (!empty($successMessage)): ?>
+                <div class="rounded-2xl border border-emerald-200 bg-emerald-50 px-4 py-3 text-sm text-emerald-700">
+                    <?= htmlspecialchars($successMessage) ?>
+                </div>
+            <?php endif; ?>
+
             <?php if (!empty($authError)): ?>
                 <div class="rounded-2xl border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-600">
                     <?= htmlspecialchars($authError) ?>

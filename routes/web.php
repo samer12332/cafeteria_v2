@@ -11,6 +11,7 @@ Router::get("/", [UserController::class, "index"]);
 Router::get("/login", [AuthController::class, "showLogin"]);
 Router::post("/login", [AuthController::class, "login"]);
 Router::get("/forgot-password", [AuthController::class, "showForgotPassword"]);
+Router::post("/forgot-password", [AuthController::class, "forgotPassword"]);
 Router::get("/logout", [AuthController::class, "logout"]);
 Router::get("/user", [UserController::class, "dashboard"]);
 Router::post("/user/orders", [OrderController::class, "store"]);

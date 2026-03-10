@@ -102,4 +102,12 @@ class User extends Model{
 
         return (bool) $stmt->fetchColumn();
     }
+
+    public static function updatePasswordByEmail($email, $hashedPassword)
+    {
+        $stmt = DB::conn()->prepare("UPDATE users SET password = ? WHERE email = ?");
+        $stmt->execute([$hashedPassword, $email]);
+
+        return $stmt->rowCount() > 0;
+    }
 }
