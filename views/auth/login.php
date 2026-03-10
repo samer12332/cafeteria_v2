@@ -1,5 +1,4 @@
-<?php require_once __DIR__ . '/../layout/header.php'; ?>
-<main class="flex min-h-screen items-center justify-center px-6 py-12">
+<?php require_once __DIR__ . '/../layout/auth_start.php'; ?>
     <div class="w-full max-w-md rounded-3xl bg-white/90 p-8 shadow-2xl shadow-orange-100">
         <div class="flex items-center gap-3">
             <div class="flex h-11 w-11 items-center justify-center rounded-2xl bg-brand-600 text-2xl text-white">&#x2615;</div>
@@ -63,7 +62,4 @@
             <a class="font-medium text-brand-600 hover:text-brand-700" href="<?= url('/forgot-password') ?>">Forgot Password?</a>
         </div>
     </div>
-</main>
-<script src="<?= url('/public/js/main.js') ?>"></script>
-</body>
-</html>
+<?php require_once __DIR__ . '/../layout/footer.php'; ?>

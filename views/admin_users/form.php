@@ -1,26 +1,12 @@
-<?php require_once __DIR__ . '/../layout/header.php'; ?>
-<header class="border-b border-orange-100 bg-white/70 backdrop-blur">
-    <div class="mx-auto flex w-full max-w-4xl items-center justify-between px-6 py-4">
-        <div class="flex items-center gap-3">
-            <div class="flex h-11 w-11 items-center justify-center rounded-2xl bg-brand-500 text-xl text-white shadow-glow">&#x2615;</div>
-            <div>
-                <p class="text-sm font-semibold uppercase tracking-[0.25em] text-brand-600">Cafeteria</p>
-                <p class="text-xs text-slate-500"><?= htmlspecialchars($formHeading) ?></p>
-            </div>
-        </div>
-
-        <nav class="hidden items-center gap-5 text-sm font-medium text-slate-600 md:flex">
-            <a href="<?= url('/admin') ?>" class="transition hover:text-brand-600">Home</a>
-            <a href="<?= url('/admin/orders') ?>" class="transition hover:text-brand-600">Orders</a>
-            <a href="<?= url('/admin/products') ?>" class="transition hover:text-brand-600">Products</a>
-            <a href="<?= url('/admin/users') ?>" class="text-brand-700">Users</a>
-            <a href="<?= url('/admin/manual-order') ?>" class="transition hover:text-brand-600">Manual Order</a>
-            <a href="<?= url('/admin/checks') ?>" class="transition hover:text-brand-600">Checks</a>
-        </nav>
-    </div>
-</header>
-
-<main class="mx-auto w-full max-w-4xl px-6 py-8">
+<?php
+$appSubtitle = $formHeading;
+$navItems = admin_nav_items();
+$activeNav = 'users';
+$userRoleLabel = 'Administrator';
+$headerWidthClass = 'max-w-4xl';
+$mainClass = 'mx-auto w-full max-w-4xl px-6 py-8';
+require_once __DIR__ . '/../layout/app_start.php';
+?>
     <div class="rounded-[2rem] bg-white/90 p-6 shadow-glow">
         <div class="flex items-center justify-between gap-4">
             <div>
@@ -82,6 +68,4 @@
             </div>
         </form>
     </div>
-</main>
-</body>
-</html>
+<?php require_once __DIR__ . '/../layout/footer.php'; ?>

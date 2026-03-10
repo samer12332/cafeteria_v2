@@ -144,3 +144,23 @@ function auth_profile_image()
 
     return url('/public/' . ltrim($user['profile_picture'], '/'));
 }
+
+function user_nav_items()
+{
+    return [
+        ['key' => 'home', 'label' => 'Home', 'path' => '/user'],
+        ['key' => 'my_orders', 'label' => 'My Orders', 'path' => '/user/orders'],
+    ];
+}
+
+function admin_nav_items()
+{
+    return [
+        ['key' => 'home', 'label' => 'Home', 'path' => '/admin'],
+        ['key' => 'orders', 'label' => 'Orders', 'path' => '/admin/orders'],
+        ['key' => 'products', 'label' => 'Products', 'path' => '/admin/products'],
+        ['key' => 'users', 'label' => 'Users', 'path' => '/admin/users'],
+        ['key' => 'manual_order', 'label' => 'Manual Order', 'path' => '/admin/manual-order'],
+        ['key' => 'checks', 'label' => 'Checks', 'path' => '/admin/checks'],
+    ];
+}
