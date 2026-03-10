@@ -43,10 +43,15 @@ class Router{
     public static function resolve()
     {
         $method = $_SERVER['REQUEST_METHOD'];
-        $url = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+        $url = urldecode(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH) ?? '/');
         $basePath = dirname($_SERVER['SCRIPT_NAME']);
-        $url = str_replace($basePath, '', $url);
+        if ($basePath !== '/' && $basePath !== '\\') {
+            $url = preg_replace('#^' . preg_quote($basePath, '#') . '#', '', $url, 1);
+        }
         $url = '/' . trim($url, '/');
+        if ($url === '//') {
+            $url = '/';
+        }
 
 
         if(isset(static::$routes[$method][$url])){
