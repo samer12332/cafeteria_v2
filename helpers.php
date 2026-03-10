@@ -44,6 +44,8 @@ function login_user(array $user)
         'name' => $user['name'],
         'email' => $user['email'],
         'room_no' => $user['room_no'] ?? null,
+        'ext' => $user['ext'] ?? null,
+        'profile_picture' => $user['profile_picture'] ?? null,
         'is_admin' => (bool) $user['is_admin'],
     ];
 }
@@ -130,4 +132,15 @@ function query_url($path, array $params = [])
     }
 
     return url($path) . '?' . http_build_query($filtered);
+}
+
+function auth_profile_image()
+{
+    $user = auth_user();
+
+    if (empty($user['profile_picture'])) {
+        return null;
+    }
+
+    return url('/public/' . ltrim($user['profile_picture'], '/'));
 }

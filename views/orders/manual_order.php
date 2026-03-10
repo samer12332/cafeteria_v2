@@ -19,7 +19,11 @@
         </nav>
 
         <div class="flex items-center gap-3 rounded-full border border-orange-100 bg-white px-3 py-2 text-sm shadow-sm">
-            <span class="flex h-9 w-9 items-center justify-center rounded-full bg-orange-100">&#x1F464;</span>
+            <?php if (!empty($currentUser['profile_picture'])): ?>
+                <img src="<?= auth_profile_image() ?>" alt="<?= htmlspecialchars($currentUser['name']) ?>" class="h-9 w-9 rounded-full object-cover">
+            <?php else: ?>
+                <span class="flex h-9 w-9 items-center justify-center rounded-full bg-orange-100">&#x1F464;</span>
+            <?php endif; ?>
             <div>
                 <p class="font-medium text-slate-800"><?= htmlspecialchars($currentUser['name']) ?></p>
                 <p class="text-xs text-slate-500">Administrator</p>
